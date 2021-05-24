@@ -4,37 +4,79 @@
 
     // Count of Total Questions
     $stmt_ques = $conn->query("SELECT * FROM questions");
-    $count_ques = $stmt_ques -> num_rows;
+
+    if($stmt_ques -> num_rows >0) {
+      $count_ques = $stmt_ques -> num_rows;
+    } else {
+      $count_ques = 0;
+    }
+    
 
     // Count of Total People
     $stmt_peop = $conn -> query("SELECT * FROM users");
-    $count_peop = $stmt_peop -> num_rows;
+
+    if($stmt_peop -> num_rows >0) {
+      $count_peop = $stmt_peop -> num_rows;
+    } else {
+      $count_peop = 0;
+    }
+    
 
     // Count of Total Category
     $stmt_cat = $conn -> query("SELECT * FROM category");
-    $count_cat = $stmt_cat -> num_rows;
+
+    if($stmt_cat -> num_rows > 0) {
+      $count_cat = $stmt_cat -> num_rows;
+    } else {
+      $count_cat = 0;
+    }
+    
 
     // Total Attemped Quiz
     $stmt_quiz = $conn -> query("SELECT * FROM history");
-    $count_quiz = $stmt_quiz -> num_rows;
+
+    if ($stmt_quiz -> num_rows >0) {
+      $count_quiz = $stmt_quiz -> num_rows;
+    } else {
+      $count_quiz = 0;
+    }
+    
 
 
     // Easy Mode Average
     $stmt_easy = $conn -> query("SELECT * FROM history WHERE mode = 'easy'");
-    $count_easy = $stmt_easy -> num_rows;
 
-    $avg_easy = round(($count_easy / $count_quiz) * 100);
+    if ($stmt_easy -> num_rows > 0) {
+      $count_easy = $stmt_easy -> num_rows;  
+    } else {
+      $count_easy = 0;
+    }
+    
+
+    $avg_easy = round(($count_easy / $count_quiz) * 100); 
 
 
     // Medium Mode Average
     $stmt_medium = $conn -> query("SELECT * FROM history WHERE mode = 'medium'");
-    $count_medium = $stmt_medium -> num_rows;
+
+    if ($stmt_medium -> num_rows > 0) {
+      $count_medium = $stmt_medium -> num_rows;
+    } else {
+      $count_medium = 0;
+    }
+    
 
     $avg_medium = round(($count_medium / $count_quiz) * 100);
 
     // Hard Mode Average
     $stmt_hard = $conn -> query("SELECT * FROM history WHERE mode = 'hard'");
-    $count_hard = $stmt_hard -> num_rows;
+
+    if ($stmt_hard -> num_rows >0) {
+      $count_hard = $stmt_hard -> num_rows;
+    } else {
+      $count_hard = 0;
+    }
+    
 
     $avg_hard = round(($count_hard / $count_quiz) * 100);
 
