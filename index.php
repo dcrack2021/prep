@@ -52,8 +52,13 @@
       $count_easy = 0;
     }
     
+    if($count_easy > 0 && $count_quiz > 0) {
+      $avg_easy = round(($count_easy / $count_quiz) * 100);
+    } else {
+      $avg_easy = 0;
+    }
 
-    $avg_easy = round(($count_easy / $count_quiz) * 100); 
+   
 
 
     // Medium Mode Average
@@ -65,8 +70,13 @@
       $count_medium = 0;
     }
     
+    if($count_medium > 0 && $count_quiz > 0) {
+      $avg_medium = round(($count_medium / $count_quiz) * 100);
+    } else {
+      $avg_medium = 0;
+    }
 
-    $avg_medium = round(($count_medium / $count_quiz) * 100);
+    
 
     // Hard Mode Average
     $stmt_hard = $conn -> query("SELECT * FROM history WHERE mode = 'hard'");
@@ -78,7 +88,12 @@
     }
     
 
-    $avg_hard = round(($count_hard / $count_quiz) * 100);
+    if($count_hard > 0 && $count_quiz > 0) {
+      $avg_hard = round(($count_hard / $count_quiz) * 100);
+    } else {
+      $avg_hard = 0;
+    }
+
 
 
     
