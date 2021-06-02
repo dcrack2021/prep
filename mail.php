@@ -3,9 +3,13 @@
     $to = "dcracksaa@gmail.com";
     $subject = "test mail";
     $message = "hello";
-    $from = "dcracksaa@gmail.com";
+    $from = "ritspatel50@gmail.com";
     $headers = "From: $from";
 
-    mail($to,$subject,$message,$headers);
+    if(mail($to,$subject,$message,$headers)) {
+        echo "mail sent";
+    }else {
+        echo "PRob";
+    }
 
-    echo "mail send";
+    
